@@ -1,0 +1,342 @@
+:root {
+    --primary-purple: #ecb0f5;
+    --dark-purple: #9c27b0;
+    --text-color: #333;
+    --max-width: 1200px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Navigation */
+.top-nav {
+    width: 100%;
+    background: #f5f5f5;
+    padding: 1rem;
+    text-align: center;
+}
+
+.top-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.top-nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
+
+/* Main Content */
+main {
+    max-width: var(--max-width);
+    width: 100%;
+    padding: 2rem;
+}
+
+.site-title {
+    font-family: 'Dancing Script', cursive;
+    text-align: center;
+    font-size: 3rem;
+    margin: 2rem 0 1rem;
+}
+
+.subtitle {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.hero-image {
+    width: 100%;
+    max-width: 600px;
+    display: block;
+    margin: 0 auto;
+    border: 15px solid var(--primary-purple);
+    border-radius: 5px;
+}
+
+/* Section Header */
+.section-header {
+    text-align: center;
+    margin: 4rem 0;
+}
+
+.section-header h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.divider {
+    width: 100%;
+    height: 2px;
+    background: #000;
+    position: relative;
+    margin: 0 auto;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #000;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.divider::before {
+    left: 0;
+}
+
+.divider::after {
+    right: 0;
+}
+
+/* Content Sections */
+.content-grid {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Individual content blocks */
+.content-item {
+    margin-bottom: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.content-item img {
+    width: 450px;
+    border: 15px solid var(--primary-purple);
+    border-radius: 5px;
+}
+
+.text-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    align-items: flex-start;
+    min-height: 100%;
+    justify-content: center;
+}
+
+.text-content h3 {
+    font-size: 1.1rem;
+    font-weight: normal;
+    margin-bottom: 0.5rem;
+}
+
+.text-content p {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+/* Alternate image position */
+.content-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+/* Family Photos - special case */
+.content-item.photos {
+    justify-content: center;
+    gap: 2rem;
+}
+
+.content-item.photos img {
+    width: 400px;
+}
+
+/* QR Code - special case */
+.qr-code {
+    width: 250px;
+    margin: 0 auto;
+}
+
+/* Buttons */
+.more-details,
+.see-obituary {
+    display: inline-block;
+    background: white;
+    border: 1px solid #000;
+    padding: 0.5rem 1.2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    width: fit-content;
+    transition: all 0.2s ease;
+}
+
+.more-details:hover,
+.see-obituary:hover {
+    background-color: var(--primary-purple);
+    border-color: var(--primary-purple);
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .content-item,
+    .content-item:nth-child(even) {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .content-item img {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .content-item.photos {
+        flex-direction: column;
+    }
+
+    .more-details,
+    .see-obituary {
+        align-self: center;
+    }
+}
+
+/* Footer */
+footer {
+    width: 100%;
+    background: var(--primary-purple);
+    padding: 2rem;
+    text-align: center;
+    margin-top: 4rem;
+}
+
+footer nav {
+    margin-bottom: 1rem;
+}
+
+footer a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin: 0 1rem;
+    font-size: 0.9rem;
+}
+
+footer p {
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+}
+
+/* Navigation */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: var(--text-color);
+    margin: 5px 0;
+    transition: 0.3s;
+}
+
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    background: #000;
+    z-index: 99;
+    transition: left 0.3s ease;
+}
+
+.mobile-menu.active {
+    left: 0;
+}
+
+.mobile-menu nav {
+    padding: 4rem 2rem;
+}
+
+.mobile-menu ul {
+    list-style: none;
+}
+
+.mobile-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    display: block;
+    padding: 1rem 0;
+}
+
+.close-menu {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* Hide menu toggle when mobile menu is active */
+.mobile-menu.active ~ .mobile-top-nav .menu-toggle {
+    display: none;
+}
+
+/* Add this new class */
+.mobile-top-nav {
+    display: none;
+    width: 100%;
+    background: #f5f5f5;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    padding-left: 1.5rem;
+}
+
+/* Update media queries */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .mobile-menu {
+        display: block;
+    }
+
+    .top-nav {
+        display: none;
+    }
+
+    .mobile-top-nav {
+        display: block;
+    }
+} 
